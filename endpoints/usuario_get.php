@@ -9,6 +9,9 @@ function api_usuario_get($request) {
       "id" => $user->user_login,
       "nome" => $user->display_name,
       "email" => $user->user_email,
+      "cep" => $user_meta['cep'][0],
+      "rua" => $user_meta['rua'][0],
+      "numero" => $user_meta['numero'][0]
     );
   } else {
     $response = new WP_Error('no_user', "Usuário não encontrado", array('status' => 404));

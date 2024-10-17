@@ -27,6 +27,7 @@ function api_usuario_post($request) {
     update_user_meta($user_id, 'rua', $rua);
     update_user_meta($user_id, 'numero', $numero);
     
+    
     $response = array(
       'nome' => $nome,
       'email' => $email,
