@@ -1,9 +1,20 @@
 <?php
 function api_usuario_get($request) {
-
   $user = wp_get_current_user();
-  
-  return rest_ensure_response($user);
+  $user_id = $user->ID;
+
+  if($user_id > 0) {
+    $user_meta = get_user_meta($user_id);
+    $response = array(
+      "id" => $user->user_login,
+      "nome" => $user->display_name,
+      "email" => $user->user_email,
+    );
+  } else {
+    $response = new WP_Error('no_user', "Usuário não encontrado", array('status' => 404));
+  }
+
+  return rest_ensure_response($response);
 }
 
 function registrar_api_usuario_get() {
