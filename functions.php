@@ -16,7 +16,6 @@ require_once($template_diretorio . "/endpoints/produto_delete.php");
 require_once($template_diretorio . "/endpoints/transacao_post.php");
 require_once($template_diretorio . "/endpoints/transacao_get.php");
 
-
 function get_produto_id_by_slug($slug) {
   $query = new WP_Query(array(
     'name' => $slug,
@@ -36,5 +35,20 @@ function expire_token() {
   return time() + (60 * 60 * 24);
 }
 add_action('jwt_auth_expire', 'expire_token');
+
+
+// função para personalizar a tela de login
+function my_login_screen() { ?>
+<style type="text/css">
+#login h1 a {
+  background-image: none;
+}
+
+#backtoblog {
+  display: none;
+}
+</style>
+<?php }
+add_action('login_enqueue_scripts', 'my_login_screen');
 
 ?>
