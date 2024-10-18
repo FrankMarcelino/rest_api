@@ -1,5 +1,9 @@
 <?php
 
+// http://ranekapilocal.local/wp-json/api/produto/notebook-3
+// lembre-se de autenticar o token com o jwt
+// GET
+
 function produto_scheme($slug) {
   $post_id = get_produto_id_by_slug($slug);
   if($post_id) {

@@ -1,4 +1,12 @@
 <?php
+
+// http://ranekapilocal.local/wp-json/jwt-auth/v1/token
+// POST
+// {
+//   "username" : "frnak@gmail.com",
+//   "password" : "12356"
+// }
+
 function api_usuario_get($request) {
   $user = wp_get_current_user();
   $user_id = $user->ID;

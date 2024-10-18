@@ -1,4 +1,10 @@
 <?php
+//http://ranekapilocal.local/wp-json/api/usuario
+// {
+//   "email" : "frnak@gmail.com",
+//   "nome" : "Frank silva",
+//   "senha" : "12356"
+//  }
 
 function api_usuario_post($request) {
   $email = sanitize_email($request['email']);
